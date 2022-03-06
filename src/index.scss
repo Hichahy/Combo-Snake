@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&family=Press+Start+2P&family=VT323&display=swap");
+
 @font-face {
   font-family: "game-pixel";
   src: url("../public/pixel-font.ttf");
 }
+
 @import "~bootstrap-icons/font/bootstrap-icons";
 
 body {
@@ -18,6 +20,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .game-container {
   height: 100vh;
   display: flex;
@@ -34,12 +37,12 @@ code {
   background-color: white;
   overflow: hidden;
   z-index: 1;
-  -webkit-box-shadow: inset 8px 8px 24px 0px rgba(66, 68, 90, 1);
-  -moz-box-shadow: inset 8px 8px 24px 0px rgba(66, 68, 90, 1);
-  box-shadow: inset 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -webkit-box-shadow: inset 8px 8px 24px 0 rgba(66, 68, 90, 1);
+  -moz-box-shadow: inset 8px 8px 24px 0 rgba(66, 68, 90, 1);
+  box-shadow: inset 8px 8px 24px 0 rgba(66, 68, 90, 1);
   transition: all 2s;
-  -webkit-animation: vibrate-3 2s linear  both;
-  animation: vibrate-3 2s linear  both;
+  -webkit-animation: vibrate-3 2s linear both;
+  animation: vibrate-3 2s linear both;
 }
 
 .game-area-inside {
@@ -90,28 +93,24 @@ code {
   width: 2%;
   height: 2%;
   background: rgb(0, 0, 0);
-  z-index: 2;
   background-size: 400% 400%;
   animation: gradient 3s ease infinite;
   z-index: 3;
-
 }
+
 .snake-dot-rage {
   position: absolute;
   width: 2%;
   height: 2%;
   background: rgb(187, 0, 0);
   z-index: 2;
-  // background-size: 400% 400%;
-  // animation: gradient 3s ease infinite;
 }
 
 .snake-food {
   position: absolute;
   width: 2%;
   height: 2%;
-  box-shadow: 0 0 0px 1px;
-  z-index: 1;
+  box-shadow: 0 0 0 1px;
   background-color: white;
   -webkit-animation: spin 0.8s linear infinite;
   -moz-animation: spin 0.8s linear infinite;
@@ -166,9 +165,10 @@ code {
     top: 400px;
     position: absolute;
   }
+
   .mute-on {
     font-size: 50px;
-    color: #000000;
+    color: #000;
     cursor: pointer;
     right: 10px;
     top: 400px;
@@ -176,17 +176,52 @@ code {
   }
 }
 
-.snake-photo {
-  height: 100px;
-  width: 100px;
-  background-color: black;
-  img {
-    width: 100%;
-    height: 100%;
-    -webkit-animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-    animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+.instruction-box {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  flex-direction: column;
+  font-size: 20px;
+  z-index: 10;
+
+  .instruction {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 255px;
+    font-family: "game-pixel";
+
+    kbd {
+      margin-right: 3px;
+      box-shadow: 2px 3px 0 2px rgba(137, 137, 137, 1);
+    }
+  }
+
+  .instruction-2 {
+    width: 85%;
+    font-family: "game-pixel";
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .rage-bar-instruction {
+      background-image: url("../public/images/blood.png");
+      background-size: 100%;
+      border-radius: 10px;
+      width: 150px;
+      border: 3px solid black;
+      height: 20px;
+      -webkit-animation: vibrate-3 1s linear infinite both;
+      animation: vibrate-3 1s linear infinite both;
+    }
   }
 }
+
 .info-box {
   display: flex;
   width: 500px;
@@ -254,6 +289,7 @@ code {
     justify-content: center;
     font-family: "game-pixel";
     font-size: 25px;
+
     p {
       -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
       animation: heartbeat 1.5s ease-in-out infinite both;
@@ -280,6 +316,7 @@ code {
     margin: 0;
     -webkit-animation: bounce-in-top 1.1s both;
     animation: bounce-in-top 1.1s both;
+
     li {
       margin: 10px 0;
       display: flex;
@@ -299,9 +336,7 @@ code {
 }
 
 .records-box::-webkit-scrollbar-track {
-  // border: 1px solid black;
   background-color: rgba(0, 0, 0, 0);
-  // border-radius: 10px;
 }
 
 .records-box::-webkit-scrollbar-thumb {
@@ -310,16 +345,19 @@ code {
   border-radius: 10px;
   max-height: 30px;
 }
+
 .rage-box {
   font-family: "game-pixel";
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   height: 55px;
+
   .box-progress {
     display: flex;
     align-items: center;
   }
+
   .combo {
     width: 100%;
     display: flex;
@@ -334,20 +372,21 @@ code {
   label {
     margin-right: 10px;
   }
+
   .rage-bar {
     width: 150px;
     border: 3px solid black;
     height: 20px;
     border-radius: 10px;
     transition: all 2s;
-   
   }
+
   .rage-bar-active {
     width: 150px;
     border: 3px solid black;
     height: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 0px 5px #b71c1c;
+    box-shadow: 0 0 0 5px #b71c1c;
     transition: all 2s;
     -webkit-animation: vibrate-3 0.3s linear infinite both;
     animation: vibrate-3 0.3s linear infinite both;
@@ -356,7 +395,6 @@ code {
   .progress {
     width: 0%;
     background-image: url("../public/images/blood.png");
-
     height: 100%;
     transition: all 1s;
     border-radius: 10px;
@@ -364,7 +402,7 @@ code {
 }
 
 .combo-split {
-  font-family: game-pixel;
+  font-family: "game-pixel";
   position: absolute;
   font-size: 100px;
   color: rgba(0, 0, 0, 0.16);
@@ -375,8 +413,9 @@ code {
   top: 490px;
   z-index: 2;
 }
+
 .combo-split-out {
-  font-family: game-pixel;
+  font-family: "game-pixel";
   position: absolute;
   font-size: 100px;
   color: rgba(0, 0, 0, 0.16);
@@ -411,7 +450,6 @@ code {
   overflow: visible;
   padding: 12px 40px;
   text-align: center;
-  text-transform: none;
   touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
