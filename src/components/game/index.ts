@@ -24,6 +24,8 @@ import {
   handleSubmitSend,
   handleShowError,
   handleOpenInstruction,
+  toggleMobileMode,
+  handleOnKeyDownMobile
 } from "../../actions/snake";
 
 const mapStateToProps = (state: IStore) => ({
@@ -45,6 +47,7 @@ const mapStateToProps = (state: IStore) => ({
   submitSend: state.snake.submitSend,
   showError: state.snake.showError,
   openInstruction: state.snake.openInstruction,
+  mobileMode: state.snake.mobileMode,
 });
 
 export default connect(mapStateToProps, {
@@ -70,4 +73,6 @@ export default connect(mapStateToProps, {
   handleSubmitSend,
   handleShowError,
   handleOpenInstruction,
+  toggleMobileMode,
+  handleOnKeyDownMobile
 })(Game as any);

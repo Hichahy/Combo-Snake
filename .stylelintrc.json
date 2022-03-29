@@ -40,16 +40,10 @@
     ],
     "string-no-newline": true,
     "unit-no-unknown": true,
-    "at-rule-empty-line-before": [
-      "always",
-      {
-        "except": ["blockless-after-same-name-blockless", "first-nested"],
-        "ignore": ["after-comment"]
-      }
-    ],
+    "at-rule-empty-line-before": null,
     "at-rule-name-case": "lower",
     "at-rule-name-space-after": "always-single-line",
-    "at-rule-no-vendor-prefix": true,
+    "at-rule-no-vendor-prefix": null,
     "at-rule-semicolon-newline-after": "always",
     "block-closing-brace-empty-line-before": "never",
     "block-closing-brace-newline-after": "always",

@@ -20,7 +20,20 @@ import {
   SUBMIT_SEND,
   SHOW_ERROR,
   OPEN_INSTRUCTION,
+  MOBILE_MODE,
+  CHANGE_DIRECTION_MOBILE,
 } from "../common/types";
+
+export const toggleMobileMode = (mobileMode: boolean) => (dispatch: any) => {
+  try {
+    dispatch({
+      type: MOBILE_MODE,
+      payload: { mobileMode },
+    });
+  } catch (err) {
+    console.log("err", err);
+  }
+};
 
 export const handleStopGame = (stopGame: boolean) => (dispatch: any) => {
   try {
@@ -221,6 +234,30 @@ export const handleOnKeyDown = (e: any) => (dispatch: any, getState: any) => {
   try {
     dispatch({
       type: CHANGE_DIRECTION,
+      payload: { direction },
+    });
+  } catch (err) {
+    console.log("err", err);
+  }
+};
+
+export const handleOnKeyDownMobile = () => (dispatch: any, getState: any) => {
+  let direction = getState().snake.direction;
+  const stopGame = getState().snake.stopGame;
+
+  if (direction === "RIGHT" && stopGame) {
+    direction = "DOWN";
+  } else if (direction === "DOWN" && stopGame) {
+    direction = "LEFT";
+  } else if (direction === "LEFT" && stopGame) {
+    direction = "UP";
+  } else if (direction === "UP" && stopGame) {
+    direction = "RIGHT";
+  }
+
+  try {
+    dispatch({
+      type: CHANGE_DIRECTION_MOBILE,
       payload: { direction },
     });
   } catch (err) {

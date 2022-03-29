@@ -18,5 +18,6 @@ export interface IStore {
     submitSend: boolean;
     showError: boolean;
     openInstruction: boolean;
+    mobileMode: boolean;
   };
 }
