@@ -21,7 +21,9 @@ import {
   OPEN_RECORDS,
   SUBMIT_SEND,
   SHOW_ERROR,
-  OPEN_INSTRUCTION
+  OPEN_INSTRUCTION,
+  MOBILE_MODE,
+  CHANGE_DIRECTION_MOBILE
 } from "../common/types";
 
 interface stateSnake {
@@ -43,6 +45,7 @@ interface stateSnake {
   nickname: string;
   showError: boolean;
   openInstruction: boolean;
+  mobileMode: boolean;
 }
 
 const initialState: stateSnake = {
@@ -67,6 +70,7 @@ const initialState: stateSnake = {
   openInstruction: false,
   submitSend: false,
   showError: false,
+  mobileMode: false,
 };
 
 export const user = typeToReducer(
@@ -74,6 +78,11 @@ export const user = typeToReducer(
     [STOP_GAME]: (state: stateSnake, action: any) => ({
       ...state,
       stopGame: action.payload.stopGame,
+    }),
+
+    [MOBILE_MODE]: (state: stateSnake, action: any) => ({
+      ...state,
+      mobileMode: action.payload.mobileMode,
     }),
 
     [OPEN_INSTRUCTION]: (state: stateSnake, action: any) => ({
@@ -116,6 +125,11 @@ export const user = typeToReducer(
     }),
 
     [CHANGE_DIRECTION]: (state: stateSnake, action: any) => ({
+      ...state,
+      direction: action.payload.direction,
+    }),
+
+    [CHANGE_DIRECTION_MOBILE]: (state: stateSnake, action: any) => ({
       ...state,
       direction: action.payload.direction,
     }),

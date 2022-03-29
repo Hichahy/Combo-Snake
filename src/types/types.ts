@@ -14,7 +14,10 @@ export interface ISnake {
   submitSend: boolean;
   showError: boolean;
   mute: boolean;
+  nickname: string;
+  errors: any;
   openInstruction: boolean;
+  mobileMode: boolean;
   handleStopGame: (stopGame: boolean) => void;
   changeComboSplit: (comboSplit: boolean) => void;
   changeComboActive: (comboActive: boolean) => void;
@@ -26,12 +29,11 @@ export interface ISnake {
   handleOpenRecords: (openRecords: boolean) => void;
   handleOpenInstruction: (openInstruction: boolean) => void;
   handleOnKeyDown: () => void;
+  handleOnKeyDownMobile: () => void;
   handleMoveSnake: () => void;
   enlargeSnake: () => void;
   checkIfOutOfBorder: () => void;
   checkIfCollapsed: () => void;
-  nickname: string;
-  errors: any;
   setNickname: (nickname: string) => void;
   handleOpenForm: (openForm: boolean) => void;
   handleFormErrors: (errors: any) => void;
@@ -39,4 +41,5 @@ export interface ISnake {
   handleGameOver: () => void;
   handleSubmitSend: (submitSend: boolean) => void;
   handleShowError: (showError: boolean) => void;
+  toggleMobileMode: (mobileMode: boolean) => void;
 }

@@ -1,11 +1,9 @@
+@import "~bootstrap-icons/font/bootstrap-icons";
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&family=Press+Start+2P&family=VT323&display=swap");
-
 @font-face {
   font-family: "game-pixel";
   src: url("../public/pixel-font.ttf");
 }
-
-@import "~bootstrap-icons/font/bootstrap-icons";
 
 body {
   margin: 0;
@@ -307,6 +305,7 @@ code {
     justify-content: center;
     overflow: scroll;
   }
+
   ol {
     padding: 0;
     width: 95%;
@@ -429,7 +428,6 @@ code {
   z-index: 2;
 }
 
-/* CSS */
 .button-50 {
   appearance: button;
   background-color: #000;
@@ -479,6 +477,157 @@ code {
 @media (min-width: 768px) {
   .button-50 {
     padding: 12px 50px;
+  }
+}
+
+@media (max-width: 510px) {
+  .game-container {
+    justify-content: space-evenly;
+  }
+
+  .info-box {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-area {
+    height: 40vh;
+    width: 40vh;
+  }
+
+  .menu-box {
+    justify-content: space-evenly;
+  }
+
+  .overlay {
+    justify-content: space-evenly;
+
+    h1 {
+      font-size: 25px;
+    }
+
+    input {
+      font-size: 25px;
+      height: 50px;
+      width: 90%;
+    }
+  }
+
+  .game-area-inside {
+    height: 96vw;
+    width: 96vw;
+  }
+  .game-area {
+    height: 96vw;
+    width: 96vw;
+  }
+
+  .button-50 {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    line-height: 15px;
+    margin: 0;
+  }
+
+  .instruction-box {
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+
+    p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .instruction {
+      align-items: center;
+      width: 36%;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .records {
+    height: 100%;
+    width: 100%;
+
+    .records-box {
+      margin-bottom: 10px;
+      width: 90%;
+    }
+
+    ol {
+      font-size: 15px;
+
+      li {
+        min-height: 40px;
+        padding: 3px 15px;
+        align-items: center;
+
+        img {
+          height: 90%;
+        }
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .mute {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    font-size: 50px;
+    color: #0000004d;
+  }
+
+  .mute-on {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    font-size: 50px;
+  }
+
+  .mobile-turn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    outline: none;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
+  }
+
+  .mobile-btn-instruction {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+    outline: none;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
+  }
+
+  .error {
+    padding: 2px 10px;
+    top: 10px;
+    font-size: 12px;
+  }
+
+  .error-hidden {
+    padding: 2px 10px;
+    top: 10px;
+    font-size: 12px;
   }
 }
 

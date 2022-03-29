@@ -26,6 +26,7 @@ const Game = ({
   mute,
   openRecords,
   openInstruction,
+  mobileMode,
   handleOpenInstruction,
   handleMute,
   handleCoordinatesFood,
@@ -43,7 +44,11 @@ const Game = ({
   changeComboSplit,
   handleOpenForm,
   handleOpenRecords,
+  toggleMobileMode,
+  handleOnKeyDownMobile,
 }: ISnake) => {
+  const [width, setWidth] = useState(window.innerWidth);
+
   let IntervalSnakeMove: NodeJS.Timer;
 
   let progressTime: NodeJS.Timer;
@@ -150,8 +155,28 @@ const Game = ({
     }, 300);
   }, [food]);
 
+  // mobile mode
+  window.addEventListener("resize", () => setWidth(window.innerWidth));
+  useEffect(() => {
+    if (width < 510) {
+      toggleMobileMode(true);
+    } else {
+      toggleMobileMode(false);
+    }
+  }, [toggleMobileMode, width]);
+
   return (
     <div className="game-container">
+      {mobileMode ? (
+        <i
+          className={`${
+            !mute
+              ? "bi bi-volume-mute-fill mute"
+              : "bi bi-volume-mute-fill mute-on"
+          }`}
+          onClick={() => handleMute(mute)}
+        ></i>
+      ) : null}
       <div className="info-box">
         <h1 className="score">score {snakeDots.length - 2}</h1>
         <div className="rage-box">
@@ -209,17 +234,25 @@ const Game = ({
             >
               instruction
             </button>
-            <i
-              className={`${
-                !mute
-                  ? "bi bi-volume-mute-fill mute"
-                  : "bi bi-volume-mute-fill mute-on"
-              }`}
-              onClick={() => handleMute(mute)}
-            ></i>
+            {!mobileMode ? (
+              <i
+                className={`${
+                  !mute
+                    ? "bi bi-volume-mute-fill mute"
+                    : "bi bi-volume-mute-fill mute-on"
+                }`}
+                onClick={() => handleMute(mute)}
+              ></i>
+            ) : null}
           </div>
         )}
       </div>
+      {mobileMode ? (
+        <button
+          onClick={() => handleOnKeyDownMobile()}
+          className="mobile-turn"
+        />
+      ) : null}
     </div>
   );
 };

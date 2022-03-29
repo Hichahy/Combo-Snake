@@ -1,17 +1,19 @@
 import React from "react";
 import { ISnake } from "../../types/types";
 
-const Instruction = ({ handleOpenInstruction }: ISnake) => {
+const Instruction = ({ handleOpenInstruction, mobileMode }: ISnake) => {
   return (
     <div className="instruction-box">
       <div className="instruction">
         <p>controls:</p>
+        {!mobileMode ? 
         <div>
           <kbd>↑</kbd>
           <kbd>↓</kbd>
           <kbd>←</kbd>
           <kbd>→</kbd>
         </div>
+        : <div className="mobile-btn-instruction"/>} 
       </div>
       <div className="instruction-2">
         <p>
