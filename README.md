@@ -5,7 +5,7 @@ To run React Project :
 3. To run the React project $ npm start
 
 DEMO:
-https://serene-benz-f3309a.netlify.app
+https://beamish-swan-ce30f3.netlify.app
 
 About the application :
 This Snake Game use Redux technology, on all state. I know, i shouldn't push all state in Redux but it's only challenge for me, and fun 🤗. Ewerything is type in TypeScript. Send records to Firebase Database and share your achievements 🏆! Snake is responsive 📱
