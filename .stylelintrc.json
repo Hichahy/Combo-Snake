@@ -136,7 +136,6 @@
     "number-max-precision": 4,
     "number-no-trailing-zeros": true,
     "property-case": "lower",
-    "property-no-vendor-prefix": true,
     "rule-empty-line-before": [
       "always-multi-line",
       {

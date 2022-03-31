@@ -84,6 +84,7 @@ const Game = ({
     handleCoordinatesFood();
   };
 
+  //COMBO PROGRESS BAR
   useEffect(() => {
     if (comboActive) {
       progressTime = setInterval(() => {
